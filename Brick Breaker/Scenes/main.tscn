@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://bh2616pwo1182"]
+
+[ext_resource type="PackedScene" uid="uid://dgjwbbd71727a" path="res://Scenes/paddle.tscn" id="1_7fdrf"]
+[ext_resource type="PackedScene" uid="uid://du8eca5bfvatd" path="res://Scenes/ball.tscn" id="2_r3xxy"]
+[ext_resource type="PackedScene" uid="uid://bdtaav7bui1he" path="res://Scenes/Walls.tscn" id="3_0tiwy"]
+[ext_resource type="PackedScene" uid="uid://b377o1tl4wwah" path="res://Scenes/deathzone.tscn" id="4_b1p07"]
+[ext_resource type="PackedScene" uid="uid://bghu8ee2yiu3n" path="res://Scenes/ui.tscn" id="5_riyer"]
+[ext_resource type="Script" path="res://Scenes/BrickSpawner.gd" id="6_lf0fb"]
+[ext_resource type="PackedScene" uid="uid://cy0htnttmkhq5" path="res://Scenes/brick.tscn" id="7_lky60"]
+
+[node name="main" type="Node"]
+
+[node name="UI" parent="." instance=ExtResource("5_riyer")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 1)
+
+[node name="Paddle" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_7fdrf")]
+position = Vector2(0, 284)
+collision_layer = 2
+camera = NodePath("../Camera2D")
+
+[node name="Ball" parent="." node_paths=PackedStringArray("death_zone", "ui") instance=ExtResource("2_r3xxy")]
+position = Vector2(2.08165e-12, 152)
+scale = Vector2(0.25, 0.25)
+collision_mask = 14
+death_zone = NodePath("../deathzone")
+ui = NodePath("../UI")
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="UpperWall" parent="Walls" instance=ExtResource("3_0tiwy")]
+position = Vector2(2.08165e-12, -334)
+collision_layer = 4
+
+[node name="LeftWall" parent="Walls" instance=ExtResource("3_0tiwy")]
+position = Vector2(-586, -54)
+rotation = 1.5708
+collision_layer = 4
+
+[node name="RightWall" parent="Walls" instance=ExtResource("3_0tiwy")]
+position = Vector2(586, -54)
+rotation = -1.5708
+collision_layer = 4
+
+[node name="deathzone" parent="." instance=ExtResource("4_b1p07")]
+position = Vector2(0, 335)
+
+[node name="BrickSpawner" type="Node" parent="." node_paths=PackedStringArray("spawn_start")]
+script = ExtResource("6_lf0fb")
+brick_scene = ExtResource("7_lky60")
+spawn_start = NodePath("../Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -172)
