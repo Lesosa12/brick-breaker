@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bdtaav7bui1he" path="res://Scenes/Walls.tscn" id="3_0tiwy"]
 [ext_resource type="PackedScene" uid="uid://b377o1tl4wwah" path="res://Scenes/deathzone.tscn" id="4_b1p07"]
 [ext_resource type="PackedScene" uid="uid://bghu8ee2yiu3n" path="res://Scenes/ui.tscn" id="5_riyer"]
-[ext_resource type="Script" path="res://Scenes/BrickSpawner.gd" id="6_lf0fb"]
+[ext_resource type="Script" path="res://Scripts/BrickSpawner.gd" id="6_qn8n0"]
 [ext_resource type="PackedScene" uid="uid://cy0htnttmkhq5" path="res://Scenes/brick.tscn" id="7_lky60"]
 
 [node name="main" type="Node"]
@@ -47,7 +47,7 @@ collision_layer = 4
 position = Vector2(0, 335)
 
 [node name="BrickSpawner" type="Node" parent="." node_paths=PackedStringArray("spawn_start")]
-script = ExtResource("6_lf0fb")
+script = ExtResource("6_qn8n0")
 brick_scene = ExtResource("7_lky60")
 spawn_start = NodePath("../Marker2D")
 
