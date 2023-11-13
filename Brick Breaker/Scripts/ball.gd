@@ -29,8 +29,11 @@ func _physics_process(delta):
 	var collider= collision.get_collider()
 	if collider is Brick:
 		collider.decrease_level()
-
-	velocity = velocity.bounce(collision.get_normal())
+		
+	if (collider is Brick or collider is Paddle):
+		ball_collision(collider)
+	else:
+		velocity = velocity.bounce(collision.get_normal())
 func start_ball():
 	position = start_position
 	randomize()
@@ -49,3 +52,9 @@ func on_life_lost():
 func reset_ball():
 	position = start_position
 	velocity = Vector2.ZERO
+
+func ball_collsion(collider):
+	
+	var ball_width = collision_shape_2d.shape.get_rect().size.x
+	var ball_center = position.x
+	var collider_width  = collider.get_width()

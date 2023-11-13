@@ -10,6 +10,7 @@ size = Vector2(124, 16)
 gravity_scale = 2.66454e-15
 lock_rotation = true
 script = ExtResource("1_6ek1j")
+speed = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
