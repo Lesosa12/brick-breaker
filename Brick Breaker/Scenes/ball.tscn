@@ -9,8 +9,6 @@ radius = 33.0
 [node name="Ball" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_teacs")
-ball_speed = null
-lives = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_negf1")
