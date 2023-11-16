@@ -6,18 +6,16 @@ signal life_lost
 
 const VELOCITY_LIMIT = 40
 
-@export var ball_speed = 15
+@export var ball_speed = 20
 @export var lives = 3
 @export var death_zone: DeathZone
 @export var ui: UI
 
 var speed_up_factor = 1.05
-var start_position: Vector2
-var last_collider_id
 
 @onready var collision_shape_2d = $CollisionShape2D
 
-
+var start_position: Vector2
 
 func _ready():
 	start_position = position
@@ -55,11 +53,12 @@ func reset_ball():
 	position = start_position
 	velocity = Vector2.ZERO
 
-func ball_collision(collider):
+func ball_collsion(collider):
 	
 	var ball_width = collision_shape_2d.shape.get_rect().size.x
-	var ball_center_x = position.x
+	var ball_center = position.x
 	var collider_width  = collider.get_width()
+<<<<<<< HEAD
 	var collider_center_x = collider.position.x
 	
 	var velocity_xy = velocity.length()
@@ -79,3 +78,5 @@ func ball_collision(collider):
 	var speed_multiplier = speed_up_factor if collider is Paddle else 1
 	
 	velocity = (new_velocity * speed_multiplier).limit_length(VELOCITY_LIMIT)
+=======
+>>>>>>> parent of 863702a (work of 11/14)

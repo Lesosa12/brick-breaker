@@ -25,8 +25,11 @@ camera = NodePath("../Camera2D")
 position = Vector2(2.08165e-12, 152)
 scale = Vector2(0.25, 0.25)
 collision_mask = 14
+<<<<<<< HEAD
 ball_speed = null
 lives = null
+=======
+>>>>>>> parent of 863702a (work of 11/14)
 death_zone = NodePath("../deathzone")
 ui = NodePath("../UI")
 
