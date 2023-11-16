@@ -59,6 +59,7 @@ func ball_collsion(collider):
 	var ball_center = position.x
 	var collider_width  = collider.get_width()
 <<<<<<< HEAD
+<<<<<<< HEAD
 	var collider_center_x = collider.position.x
 	
 	var velocity_xy = velocity.length()
@@ -78,5 +79,7 @@ func ball_collsion(collider):
 	var speed_multiplier = speed_up_factor if collider is Paddle else 1
 	
 	velocity = (new_velocity * speed_multiplier).limit_length(VELOCITY_LIMIT)
+=======
+>>>>>>> parent of 863702a (work of 11/14)
 =======
 >>>>>>> parent of 863702a (work of 11/14)
