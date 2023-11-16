@@ -64,7 +64,7 @@ func ball_collision(collider):
 	
 	var velocity_xy = velocity.length()
 	
-	var collision_x = (ball_center_x - collider_center_x) / (collider_width / 2)
+	var collisaion_x = (ball_center_x - collider_center_x) / (collider_width / 2)
 	
 	var new_velocity = Vector2.ZERO
 	
