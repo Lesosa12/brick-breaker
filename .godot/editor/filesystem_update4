@@ -1,1 +1,5 @@
+res://Scenes/ui.tscn
+res://Scripts/brick_spawner.gd
+res://Scripts/level_definitions.gd
+res://Scripts/ui.gd
 res://Scenes/main.tscn
