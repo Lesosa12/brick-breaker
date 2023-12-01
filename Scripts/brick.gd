@@ -26,10 +26,12 @@ func set_level(new_level: int):
 	sprite_2d.texture = sprites[new_level - 1]
 	
 func decrease_level():
+	print(level)
 	if level > 1:
 		set_level(level - 1)
 	else:
 		fade_out()
+	print(level)
 		
 func fade_out():
 	collision_shape_2d.disabled = true

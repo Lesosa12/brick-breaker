@@ -61,7 +61,7 @@ func spawn_from_definition(level_definition):
 				continue
 			var brick = brick_scene.instantiate() as Brick
 			add_child(brick)
-			brick.set_level(ROWS - i)
+			brick.set_level(level_definition[i][j])
 			var x = spawn_position_x + j * (margin.x + brick.get_size().x)
 			var y = spawn_position_y + i * (margin.y + brick.get_size().y)
 			brick.set_position(Vector2(x, y))
@@ -71,5 +71,5 @@ func spawn_from_definition(level_definition):
 func on_brick_destroyed():
 	brick_count -= 1
 	if brick_count == 0:
-		ball.stop_ball()
+		ball.reset_ball()
 		ui.on_level_won()
